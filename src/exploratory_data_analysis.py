@@ -16,13 +16,15 @@ from shapely.geometry import Point
 import geopandas as gpd
 from geopandas import GeoDataFrame
 from tqdm import tqdm
+import sys
 
 
-dir_output = '/home/akopf/SWISS_results'
+dir_output = sys.argv[1]
 if not os.path.exists(dir_output):
     os.makedirs(dir_output)
-data_folder = '/data/akopf/Projects/SWISS/data'
-type_delay = 'ArrDelay'
+data_folder = sys.argv[2]
+type_delay = sys.argv[3]
+
 
 # read in data
 data, plane_data, carriers, airport = load_data(data_folder)
